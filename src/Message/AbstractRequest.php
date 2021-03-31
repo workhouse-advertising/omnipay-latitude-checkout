@@ -20,12 +20,20 @@ abstract class AbstractRequest extends BaseAbstractRequest
     protected function getBaseData()
     {
         return [
-            // TODO: Fill this.
+            'merchantId' => $this->getMerchantId(), 
+            'isTest' => (bool) $this->getTestMode(), 
         ];
     }
 
     protected function getEndpoint()
     {
         return $this->getTestMode() ? $this->testEndpoint : $this->liveEndpoint;
+    }
+
+    protected function getAuthorisationBasicPassword()
+    {
+        $merchantId = $this->getMerchantId();
+        $secretKey = $this->getSecretKey();
+        return base64_encode("{$merchantId}:{$secretKey}");
     }
 }

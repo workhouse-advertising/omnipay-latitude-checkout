@@ -24,13 +24,23 @@ trait GatewayParameters
         return $this->setParameter('secretKey', $value);
     }
 
-    // public function getReference()
-    // {
-    //     return $this->getParameter('reference');
-    // }
+    public function getReference()
+    {
+        return $this->getParameter('reference');
+    }
 
-    // public function setReference($value)
-    // {
-    //     return $this->setParameter('reference', $value);
-    // }
+    public function setReference($value)
+    {
+        return $this->setParameter('reference', $value);
+    }
+
+    public function getPromotionReference()
+    {
+        return $this->getParameter('promotionReference');
+    }
+
+    public function setPromotionReference($value)
+    {
+        return $this->setParameter('promotionReference', $value);
+    }
 }

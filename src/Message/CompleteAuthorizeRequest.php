@@ -6,6 +6,9 @@ use Omnipay\LatitudeCheckout\Message\CompleteAuthorizeResponse;
 
 class CompleteAuthorizeRequest extends AbstractRequest
 {
+    protected $liveEndpoint = 'https://api.latitudefinancial.com/v1/applybuy-checkout-service/purchase/verify';
+    protected $testEndpoint = 'https://api.test.latitudefinancial.com/v1/applybuy-checkout-service/purchase/verify';
+
     /**
      * @inheritDoc
      */
