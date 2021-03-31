@@ -6,30 +6,22 @@ use Omnipay\LatitudeCheckout\Message\Response;
 
 class CompleteAuthorizeResponse extends Response
 {
+    const RESULT_COMPLETE = 'completed';
+
     public function isSuccessful()
     {
-        return false;
+        return ($this->getData()['result'] ?? null) === static::RESULT_COMPLETE;
     }
-
-    // TODO: Check available statuses and add checks here.
-
-    // public function isPending()
-    // {
-    //     return false;
-    // }
-
-    // public function isCancelled()
-    // {
-    //     return false;
-    // }
 
     public function getTransactionId()
     {
-        return null;
+        return $this->getData()['merchantReference'] ?? null;
     }
 
     public function getTransactionReference()
     {
-        return null;
+        // TODO: Check which of `gatewayReference` or `transactionReference` is more appropriate.
+        // return $this->getData()['gatewayReference'] ?? null;
+        return $this->getData()['transactionReference'] ?? null;
     }
 }
