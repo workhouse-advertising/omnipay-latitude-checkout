@@ -2,6 +2,7 @@
 
 namespace Omnipay\LatitudeCheckout\Message;
 
+use Omnipay\Common\Exception\InvalidRequestException;
 use Omnipay\LatitudeCheckout\Message\RefundResponse;
 
 class RefundRequest extends AbstractRequest
@@ -27,24 +28,14 @@ class RefundRequest extends AbstractRequest
             'transactionReference',
         );
 
-        
         return $data;
     }
 
-    // /**
-    //  * @inheritDoc
-    //  */
-    // public function sendData($data)
-    // {
-    //     $headers = [
-    //         'Content-Type' => 'application/json',
-    //     ];
-    //     $httpResponse = $this->httpClient->request('POST', $this->getEndpoint(), $headers, json_encode($data));
-    //     $responseData = json_decode($httpResponse->getBody(), true);
-
-    //     $response = new RefundResponse($this, $responseData);
-    //     $response->setHttpResponse($httpResponse);
-
-    //     return $response;
-    // }
+    /**
+     * @inheritDoc
+     */
+    public function sendData($data)
+    {
+        throw new InvalidRequestException("Refunds need to be handled manually, for now.");
+    }
 }
