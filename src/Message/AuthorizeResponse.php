@@ -36,4 +36,12 @@ class AuthorizeResponse extends AbstractResponse implements RedirectResponseInte
         $data = $this->getData();
         return $data['redirectUrl'] ?? null;
     }
+
+    /**
+     * @inheritDoc
+     */
+    public function getMessage()
+    {
+        return $this->getData()['error'] ?? null;
+    }
 }
