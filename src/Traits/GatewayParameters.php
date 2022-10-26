@@ -14,6 +14,16 @@ trait GatewayParameters
         return $this->setParameter('merchantId', $value);
     }
 
+    public function getStoreMerchantId()
+    {
+        return $this->getParameter('storeMerchantId');
+    }
+
+    public function setStoreMerchantId($value)
+    {
+        return $this->setParameter('storeMerchantId', $value);
+    }
+
     public function getSecretKey()
     {
         return $this->getParameter('secretKey');

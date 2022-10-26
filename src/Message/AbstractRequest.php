@@ -19,10 +19,17 @@ abstract class AbstractRequest extends BaseAbstractRequest
 
     protected function getBaseData()
     {
-        return [
+        $baseData = [
             'merchantId' => $this->getMerchantId(), 
             'isTest' => (bool) $this->getTestMode(), 
         ];
+
+        // Add the `storeMid` parameter if the current store configuration has a value for it.
+        if (!is_null($this->getStoreMerchantId())) {
+            $baseData['storeMid'] = $this->getStoreMerchantId();
+        }
+
+        return $baseData;
     }
 
     protected function getEndpoint()

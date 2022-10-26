@@ -23,6 +23,7 @@ class Gateway extends AbstractGateway
     {
         return [
             'merchantId' => '',
+            'storeMerchantId' => null,
             'secretKey' => '',
             'testMode' => false,
         ];
