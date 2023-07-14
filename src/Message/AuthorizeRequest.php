@@ -43,11 +43,10 @@ class AuthorizeRequest extends AbstractRequest
             'shippingAddress' => $this->getShippingAddress(),
             // TODO: Add support for shipping amounts.
             // 'totalShippingAmount' => 50.00,
-            // TODO: Add support for platformType and platformVersion changes.
-            //       These are just metadata references for the system that's integrating with Latitude Checkout.
-            // 'platformType' => 'omnipay', 
-            // 'platformVersion' => '1.0.0',
-               
+            // NOTE: The fields `platformType` and `platformVersion` are just metadata references for the system
+            //       that is integrating with Latitude Checkout.
+            'platformType' => $this->getPlatformType(),
+            'platformVersion' => $this->getPlatformVersion(),
         ]);
 
         return $data;

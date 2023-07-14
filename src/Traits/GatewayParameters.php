@@ -53,4 +53,24 @@ trait GatewayParameters
     {
         return $this->setParameter('promotionReference', $value);
     }
+
+    public function getPlatformType()
+    {
+        return $this->getParameter('platformType');
+    }
+
+    public function setPlatformType($value)
+    {
+        return $this->setParameter('platformType', $value);
+    }
+
+    public function getPlatformVersion()
+    {
+        return $this->getParameter('platformVersion');
+    }
+
+    public function setPlatformVersion($value)
+    {
+        return $this->setParameter('platformVersion', $value);
+    }
 }

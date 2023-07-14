@@ -26,6 +26,8 @@ class Gateway extends AbstractGateway
             'storeMerchantId' => null,
             'secretKey' => '',
             'testMode' => false,
+            'platformType' => 'omnipay',
+            'platformVersion' => '1.0.0',
         ];
     }
 
